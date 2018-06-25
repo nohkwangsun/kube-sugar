@@ -1,0 +1,7 @@
+#!/bin/bash
+# in ks.get.pv
+
+NS=`ks.get.namespace -s`
+CMD="kubectl -n $NS get pv $@"
+echo $CMD
+exec $CMD

@@ -1,0 +1,37 @@
+#!/bin/bash
+# in mk.get
+
+function help {
+  echo "Usage: mk.get {resource type} {resource command}"
+  echo "  ex) $ mk.get po pod      # make new script, ks.get.po for getting pod"
+  echo "      $ mk.get sc service  # make new script, ks.get.service for getting sc"
+}
+
+if [ $# == 0 ]
+then
+  help
+  exit 0
+elif [ $# != 2 ]
+then
+  echo "Error: invalid the number of arguments : $#"
+  help
+  exit 1
+fi
+
+if [ -f "ks.get.$2" ]
+then
+  echo "Error: already exists file : ks.get.$2"
+  exit 2
+fi
+
+cat <<  EOF > ks.get.$2
+#!/bin/bash
+# in ks.get.$2
+
+NS=\`ks.get.namespace -s\`
+CMD="kubectl -n \$NS get $1 \$@"
+echo \$CMD
+exec \$CMD
+EOF
+
+chmod +x ks.get.$2

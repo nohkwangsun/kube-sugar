@@ -1,0 +1,7 @@
+#!/bin/bash
+# in ks.get.ns
+
+NS=`ks.get.namespace -s`
+CMD="kubectl -n $NS get ns $@"
+echo $CMD
+exec $CMD

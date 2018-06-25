@@ -1,0 +1,18 @@
+#!/bin/bash
+# in ks.get.namespace
+
+if [ -f ~/.ks_namespace ]
+then
+  NS=`head -1 ~/.ks_namespace`
+else
+  NS="default"
+  if [ "$1" != "-s" ] ; then
+    printf "No such file `cd ~; pwd`/.ks_namespace. Do you want to create? [Y/N, default:Y] "
+    read yn
+    if [ "$yn" == "Y" ] || [ "$yn" == "y" ] ; then
+      echo "default" > ~/.ks_namespace
+    fi
+  fi
+fi
+
+echo $NS

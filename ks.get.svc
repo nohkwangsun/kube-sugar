@@ -1,0 +1,7 @@
+#!/bin/bash
+# in ks.get.svc
+
+NS=`ks.get.namespace -s`
+CMD="kubectl -n $NS get svc $@"
+echo $CMD
+exec $CMD

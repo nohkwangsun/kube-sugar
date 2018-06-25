@@ -1,0 +1,7 @@
+#!/bin/bash
+# in ks.get.pod
+
+NS=`ks.get.namespace -s`
+CMD="kubectl -n $NS get jobs $@"
+echo $CMD
+exec $CMD
