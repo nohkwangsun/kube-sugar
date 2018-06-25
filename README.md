@@ -28,8 +28,11 @@ kube-sugar
 
  1. ns.get
  2. ns.set
+
  3. mk.get
  4. ks.get.()()()
- 5. ks.exe.()()()
+
+ 5. mk.get
  6. ks.all.()()()
  
+ 7. ks.exe.()()()
