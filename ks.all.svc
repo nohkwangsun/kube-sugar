@@ -1,0 +1,6 @@
+#!/bin/bash
+# in ks.all.svc
+
+CMD="kubectl --all-namespaces=true get svc $@"
+echo $CMD
+exec $CMD

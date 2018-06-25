@@ -3,8 +3,8 @@
 
 function help {
   echo "Usage: mk.get {resource type} {resource command}"
-  echo "  ex) $ mk.all po pod      # make new script, ks.get.po for getting pod of current namespace"
-  echo "      $ mk.all sc service  # make new script, ks.get.service for getting sc in current namespace"
+  echo "  ex) $ mk.all po pod      # make new script, ks.get.po for getting pod of in namespaces"
+  echo "      $ mk.all sc service  # make new script, ks.get.service for getting sc in all namespaces"
 }
 
 if [ $# == 0 ]
@@ -19,7 +19,7 @@ then
 fi
 
 
-FILE_NAME="ks.get.$2"
+FILE_NAME="ks.all.$2"
 
 if [ -f $FILE_NAME ]
 then
@@ -31,8 +31,7 @@ cat <<  EOF > $FILE_NAME
 #!/bin/bash
 # in $FILE_NAME
 
-NS=\`ns.get -s\`
-CMD="kubectl -n \$NS get $1 \$@"
+CMD="kubectl --all-namespaces=true get $1 \$@"
 echo \$CMD
 exec \$CMD
 EOF
