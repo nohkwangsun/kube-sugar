@@ -1,0 +1,32 @@
+#!/bin/bash
+# in ns.set
+
+function help {
+  echo "Usage: ns.set {the namespace you want to use now}"
+}
+
+if [ $# -eq 0 ]
+then
+  help
+  exit 0
+elif [ $# -ne 1 ]
+then
+  echo "Error: Invalid the number of arguments"
+  help
+  exit 1
+fi
+
+if [ -f ~/.ks_namespace ]
+then
+  NS=`head -1 ~/.ks_namespace`
+  printf "Replace $NS with $1 [Y/N, default:Y] "
+  read yn
+  if [ $yn ] && [ "$yn" != "y" ] && [ "$yn" != "Y" ]
+  then
+    echo "Nothing happens"
+    exit 0
+  fi 
+fi
+
+echo $1 > ~/.ks_namespace
+head -1 ~/.ks_namespace
