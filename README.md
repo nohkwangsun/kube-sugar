@@ -25,6 +25,8 @@ $ ks.get.svc
 ```
 
 kube-sugar
+
+
  0. ks.have.ns
  1. ks.get.()()()
  2. ks.exe.()()()
