@@ -26,10 +26,11 @@ $ ks.get.svc
 
 kube-sugar
 
-
- 0. ks.have.ns
- 1. ks.get.()()()
- 2. ks.exe.()()()
- 4. ks.all.()()()
- 3. mk.()()()
+ 1. ns.get
+ 2. ns.set
+ 3. mk.get
+ 4. mk.set
+ 5. ks.get.()()()
+ 6. ks.exe.()()()
+ 7. ks.all.()()()
  
