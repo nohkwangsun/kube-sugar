@@ -32,7 +32,29 @@ kube-sugar
  3. mk.get
  4. ks.get.()()()
 
- 5. mk.get
+ 5. mk.all
  6. ks.all.()()()
  
- 7. ks.exe.()()()
+ 7. mk.kill
+ 8. ks.kill.()()()
+ 
+ 9. ks.exe.exec
+10. ks.exe.bash
+
+10. ks.log.logs
+11. ks.log.tail
+
+12. mk.desc
+13. ks.desc.()()()
+
+14. ks.file.create
+15. ks.file.delete
+
+16. ks.cp
+17. ks.watch
+18. ks.expose
+19. ks.run
+
+20. ks.helm.ls
+21. ks.helm.del
+
