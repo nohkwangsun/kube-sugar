@@ -1,0 +1,7 @@
+#!/bin/bash
+# in ks.desc.pod
+
+NS=`ns.get -s`
+CMD="kubectl -n $NS describe pods $@"
+echo $CMD
+exec $CMD

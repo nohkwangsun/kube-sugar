@@ -1,0 +1,9 @@
+#!/bin/bash
+# in ks.del.pod
+
+NS=`ns.get -s`
+POD=`ks.get.pod |grep $1 | awk '{print $1}' | head -1`
+
+CMD="kubectl -n $NS delete pod $POD ${@:2}"
+echo $CMD
+exec $CMD

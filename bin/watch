@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 COMMAND" >&2
+  exit 1
+fi
+
+interval=1
+#shift 1
+while sleep $interval; do
+  clear
+  echo $insterval "$(date)"
+  $*
+done
